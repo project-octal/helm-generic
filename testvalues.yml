@@ -1,0 +1,84 @@
+--- 
+accounts: []
+affinity: {}
+deployments: 
+  - 
+    endpoints: 
+      - 
+        container_port: 80
+        name: kergiva-app
+        protocol: TCP
+    environment_variables: 
+      NGINX_PORT: 80
+    image: 
+      pull_poicy: Always
+      pull_secret: regcred
+      repo: docker.pkg.github.com/rationalhealthcare/vuetest2/kergiva-app
+      tag: latest
+    init_containers: 
+      - 
+        command: 
+          - sh
+          - "-c"
+          - "mkdir -p /var/cache/nginx && chown 1000:1000 /var/cache/nginx"
+        image: busybox
+        name: install
+        volumeMounts: 
+          - 
+            mountPath: /var/cache
+            name: cache-volume
+    name: kergiva-org-app
+    probes: 
+      liveness: 
+        path: /
+        port: 80
+      readiness: 
+        path: /
+        port: 80
+    replicas: 1
+    resources: 
+      limits: 
+        cpu: 100m
+        memory: 128Mi
+      requests: 
+        cpu: 100m
+        memory: 128Mi
+    security: 
+      drop_all_capabilities: true
+      pod_fs_group: 1000
+      read_only_root_filesystem: true
+      run_as_group: 1000
+      run_as_non_root: true
+      run_as_user: 1000
+    volume_mounts: 
+      cache-volume: /var/cache
+      run-volume: /var/run
+      site-config: /etc/nginx/conf.d/
+labels: 
+  app.kubernetes.io/component: octal-http-application
+  app.kubernetes.io/instance: renewing-goshawk
+  app.kubernetes.io/managed-by: terraform
+  app.kubernetes.io/name: kergiva-app
+  app.kubernetes.io/part-of: kergiva-org
+  app.kubernetes.io/tier: app
+nodeSelector: {}
+tolerations: []
+volumes: 
+  - 
+    configMap: 
+      name: site-configmap
+    name: nginx-config
+  - 
+    configMap: 
+      name: site-configmap
+    name: site-config
+  - 
+    emptyDir: {}
+    name: cache-volume
+  - 
+    emptyDir: {}
+    name: run-volume
+  - 
+    configMap: 
+      name: database-configmap
+    name: database-config

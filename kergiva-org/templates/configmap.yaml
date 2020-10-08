@@ -1,13 +1,14 @@
+{{- range .Values.deployments }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: "site-configmap"
-  namespace: {{ .Release.Namespace }}
+  name: "{{ .name }}-site-configmap"
+  namespace: {{ $.Release.Namespace }}
   labels:
-{{ include "kergiva.labels" . | indent 4 }}
+{{ include "kergiva.labels" $ | indent 4 }}
 data:
   default.conf: |-
-  {{- range .Values.deployments }}
+  {{- range $.Values.deployments }}
   {{- range .endpoints }}
     server {
         listen       {{ .container_port }};
@@ -23,15 +24,16 @@ data:
     }
   {{- end }}
   {{- end }}
+{{- end }}
 ---
-
+{{- range .Values.deployments }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: "nginx-configmap"
-  namespace: {{ .Release.Namespace }}
+  name: "{{ .name }}-nginx-configmap"
+  namespace: {{ $.Release.Namespace }}
   labels:
-{{ include "kergiva.labels" . | indent 4 }}
+{{ include "kergiva.labels" $ | indent 4 }}
 data:
   default.conf: |-
     user  nginx;
@@ -52,15 +54,16 @@ data:
         keepalive_timeout  65;
         include /etc/nginx/conf.d/*.conf;
     }
+{{- end }}
 ---
-
+{{- range .Values.deployments }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: "database-configmap"
-  namespace: {{ .Release.Namespace }}
+  name: "{{ .name }}-database-configmap"
+  namespace: {{ $.Release.Namespace }}
   labels:
-{{ include "kergiva.labels" . | indent 4 }}
+{{ include "kergiva.labels" $ | indent 4 }}
 data:
   db.config.js: |-
     'use strict';
@@ -78,3 +81,4 @@ data:
       console.log("Database connection tested Ok.");
     });
     module.exports = dbConn;
+{{- end }}

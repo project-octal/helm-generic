@@ -35,9 +35,10 @@ Create chart name and version as used by the chart label.
 Common labels
 */}}
 {{- define "kergiva.labels" -}}
-app.kubernetes.io/name: {{ include "kergiva.name" $ }}
-
-helm.sh/chart: {{ include "kergiva.chart" $ }}
+{{- range $key, $value := .Values.labels }}
+{{$key}}: {{$value | quote}}
+{{- end }}
+helm.sh/chart: {{ include "kergiva.chart" $ | quote }}
 {{- if $.Chart.AppVersion }}
 app.kubernetes.io/version: {{ $.Chart.AppVersion | quote }}
 {{- end }}
