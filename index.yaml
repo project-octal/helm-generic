@@ -3,7 +3,16 @@ entries:
   kergiva-org:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-10-08T09:45:09.836821-05:00"
+    created: "2020-10-08T09:45:21.079592-05:00"
+    description: A Helm chart for the kergiva.org website
+    digest: 24ab4dcd3de314b620094f9d10baa48750209659a745147277b45432dc49a1a8
+    name: kergiva-org
+    urls:
+    - kergiva-org-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-10-08T09:45:21.079278-05:00"
     description: A Helm chart for the kergiva.org website
     digest: c91818e85ae461150bdc780521eee71098bcdb9e81f195ef815c3188add50461
     name: kergiva-org
@@ -12,7 +21,7 @@ entries:
     version: 0.1.4
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-10-08T09:45:09.836477-05:00"
+    created: "2020-10-08T09:45:21.078951-05:00"
     description: A Helm chart for the kergiva.org website
     digest: 5c573d221de5245107a22fddc9a6ea3f58555304a877230cd5725af4b484ae06
     name: kergiva-org
@@ -21,7 +30,7 @@ entries:
     version: 0.1.3
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-10-08T09:45:09.835872-05:00"
+    created: "2020-10-08T09:45:21.078639-05:00"
     description: A Helm chart for the kergiva.org website
     digest: c5ead162a46f85e9d8d189de1afc35fb4775ef7fce944e2d5ad452e3312953d6
     name: kergiva-org
@@ -30,7 +39,7 @@ entries:
     version: 0.1.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-10-08T09:45:09.835185-05:00"
+    created: "2020-10-08T09:45:21.078239-05:00"
     description: A Helm chart for the kergiva.org website
     digest: 9a54f34826ea3225668879406ef1ed533617a2f1598b017daddc4c0fe405f321
     name: kergiva-org
@@ -39,11 +48,11 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-10-08T09:45:09.834481-05:00"
+    created: "2020-10-08T09:45:21.077719-05:00"
     description: A Helm chart for the kergiva.org website
     digest: 7fcce8cb1799a2bb50b399a5f2b8747acce74f73b4f6428657e316bc349112ec
     name: kergiva-org
     urls:
     - kergiva-org-0.1.0.tgz
     version: 0.1.0
-generated: "2020-10-08T09:45:09.831464-05:00"
+generated: "2020-10-08T09:45:21.076276-05:00"
