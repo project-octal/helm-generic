@@ -4,7 +4,9 @@ metadata:
   name: "site-configmap"
   namespace: {{ .Release.Namespace }}
   labels:
-{{ include "kergiva.labels" . | indent 4 }}
+    app.kubernetes.io/name={{ include "kergiva.name" $ }}
+{{ include ".Values.labels" . | indent 4 }}
+#{{ include "kergiva.labels" . | indent 4 }}
 data:
   default.conf: |-
   {{- range .Values.deployments }}
@@ -31,7 +33,8 @@ metadata:
   name: "nginx-configmap"
   namespace: {{ .Release.Namespace }}
   labels:
-{{ include "kergiva.labels" . | indent 4 }}
+    app.kubernetes.io/name={{ include "kergiva.name" $ }}
+{{ include ".Values.labels" . | indent 4 }}
 data:
   default.conf: |-
     user  nginx;
@@ -60,7 +63,8 @@ metadata:
   name: "database-configmap"
   namespace: {{ .Release.Namespace }}
   labels:
-{{ include "kergiva.labels" . | indent 4 }}
+    app.kubernetes.io/name={{ include "kergiva.name" $ }}
+{{ include ".Values.labels" . | indent 4 }}
 data:
   db.config.js: |-
     'use strict';
