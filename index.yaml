@@ -3,7 +3,16 @@ entries:
   kergiva-org:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-10-08T09:05:36.79199-05:00"
+    created: "2020-10-08T09:35:06.567611-05:00"
+    description: A Helm chart for the kergiva.org website
+    digest: fdbc84cfcc0f3f7dbe588a5906e4fcc767c1931503706cbe1ac24a07c729f466
+    name: kergiva-org
+    urls:
+    - kergiva-org-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-10-08T09:35:06.567284-05:00"
     description: A Helm chart for the kergiva.org website
     digest: 5c573d221de5245107a22fddc9a6ea3f58555304a877230cd5725af4b484ae06
     name: kergiva-org
@@ -12,7 +21,7 @@ entries:
     version: 0.1.3
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-10-08T09:05:36.791357-05:00"
+    created: "2020-10-08T09:35:06.566696-05:00"
     description: A Helm chart for the kergiva.org website
     digest: c5ead162a46f85e9d8d189de1afc35fb4775ef7fce944e2d5ad452e3312953d6
     name: kergiva-org
@@ -21,7 +30,7 @@ entries:
     version: 0.1.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-10-08T09:05:36.790793-05:00"
+    created: "2020-10-08T09:35:06.56374-05:00"
     description: A Helm chart for the kergiva.org website
     digest: 9a54f34826ea3225668879406ef1ed533617a2f1598b017daddc4c0fe405f321
     name: kergiva-org
@@ -30,11 +39,11 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-10-08T09:05:36.790048-05:00"
+    created: "2020-10-08T09:35:06.562343-05:00"
     description: A Helm chart for the kergiva.org website
     digest: 7fcce8cb1799a2bb50b399a5f2b8747acce74f73b4f6428657e316bc349112ec
     name: kergiva-org
     urls:
     - kergiva-org-0.1.0.tgz
     version: 0.1.0
-generated: "2020-10-08T09:05:36.785877-05:00"
+generated: "2020-10-08T09:35:06.560891-05:00"
