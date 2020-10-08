@@ -36,7 +36,7 @@ Common labels
 */}}
 {{- define "kergiva.labels" -}}
 app.kubernetes.io/name: {{ include "kergiva.name" $ }}
-{{ .Values.labels }}
+
 helm.sh/chart: {{ include "kergiva.chart" $ }}
 {{- if $.Chart.AppVersion }}
 app.kubernetes.io/version: {{ $.Chart.AppVersion | quote }}
