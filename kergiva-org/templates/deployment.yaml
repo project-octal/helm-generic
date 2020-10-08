@@ -47,7 +47,7 @@ spec:
             {{- end }}
           ports:
             {{- range .endpoints }}
-            - name: "{{ first .hosts | replace "." "-" }}"
+            - name: "{{ .name }}"
               containerPort: {{ .container_port }}
               protocol: {{ .protocol }}
             {{- end }}

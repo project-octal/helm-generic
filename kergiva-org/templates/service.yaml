@@ -4,17 +4,17 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "{{ first $endpoint.hosts | replace "." "-" }}"
+  name: "{{ $endpoint.name }}"
   namespace: {{ $.Release.Namespace }}
   labels:
 {{ include "kergiva.labels" $ | indent 4 }}
 spec:
-  type: "{{ if $endpoint.create_ingress }}NodePort{{ else }}ClusterIP{{ end }}"
+  type: "ClusterIP"
   ports:
     - port: {{ $endpoint.container_port }}
-      targetPort: "{{ first $endpoint.hosts | replace "." "-" }}"
+      targetPort: "{{ $endpoint.name }}"
       protocol: {{ $endpoint.protocol }}
-      name: "{{ first $endpoint.hosts | replace "." "-" }}"
+      name: "{{ $endpoint.name }}"
   selector:
     app.kubernetes.io/name: {{ $deployment.name }}
     app.kubernetes.io/instance: {{ $.Release.Name }}
