@@ -55,30 +55,3 @@ data:
         include /etc/nginx/conf.d/*.conf;
     }
 {{- end }}
----
-{{- range .Values.deployments }}
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: "{{ .name }}-database-configmap"
-  namespace: {{ $.Release.Namespace }}
-  labels:
-{{ include "kergiva.labels" $ | indent 4 }}
-data:
-  db.config.js: |-
-    'use strict';
-    const mysql = require('mysql');
-
-    //local mysql db connection
-    const dbConn = mysql.createConnection({
-      host     : '167.71.93.29',
-      user     : 'myapi',
-      password : '6f6d9ad26e9394b4605a07f10de1d2ea',
-      database : 'profile'
-    });
-    dbConn.connect(function(err) {
-      if (err) throw err;
-      console.log("Database connection tested Ok.");
-    });
-    module.exports = dbConn;
-{{- end }}
